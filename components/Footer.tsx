@@ -1,6 +1,5 @@
 "use client";
 import { FaDiscord, FaTelegramPlane } from "react-icons/fa"; 
-import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
