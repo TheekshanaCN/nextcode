@@ -114,8 +114,8 @@ const Careers = () => {
           className="text-center mb-12"
         >
           <p className="text-neutral-300 max-w-2xl mx-auto mb-8">
-            Welcome to our team! We're always on the lookout for talented individuals to join us on our exciting journey. If you're passionate, dedicated, and ready to make a meaningful impact, we'd love to hear from you. Explore our current job openings and discover how you can become a part of our dynamic team. Your next career opportunity could be just a click away.
-          </p>
+  Welcome to our team! We&apos;re always on the lookout for talented individuals to join us on our exciting journey. If you&apos;re passionate, dedicated, and ready to make a meaningful impact, we&apos;d love to hear from you. Explore our current job openings and discover how you can become a part of our dynamic team. Your next career opportunity could be just a click away.
+</p>
           <a href="https://discord.gg/g2m3ExwP" target="_blank" rel="noopener noreferrer">
           <button
             className="px-4 mt-6 py-2 rounded-md border border-neutral-300 bg-neutral-100 text-neutral-500 text-sm hover:-translate-y-1 transform transition duration-200 hover:shadow-md"
