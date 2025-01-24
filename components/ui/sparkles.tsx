@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
-export const SparklesCore = (props: {
+interface SparklesCoreProps {
   id?: string;
   className?: string;
   background?: string;
@@ -13,21 +13,19 @@ export const SparklesCore = (props: {
   particleColor?: string;
   particleSpeed?: number;
   particleBlendingMode?: string;
-  hoverEffect?: boolean;
-}) => {
-  const {
-    id,
-    className,
-    background = "transparent",
-    minSize = 0.4,
-    maxSize = 1,
-    particleDensity = 100,
-    particleColor = "#FFF",
-    particleSpeed = 1,
-    particleBlendingMode = "screen",
-    hoverEffect = false,
-  } = props;
+}
 
+export const SparklesCore = ({
+  id,
+  className,
+  background = "transparent",
+  minSize = 0.4,
+  maxSize = 1,
+  particleDensity = 100,
+  particleColor = "#FFF",
+  particleSpeed = 1,
+  particleBlendingMode = "screen"
+}: SparklesCoreProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [context, setContext] = useState<CanvasRenderingContext2D | null>(null);
   const [particles, setParticles] = useState<

@@ -109,11 +109,19 @@ export const ProductItem = ({
   );
 };
 
-export const HoveredLink = ({ children, ...rest }: any) => {
+// Replace any with specific type
+interface HoveredLinkProps {
+  children: React.ReactNode;
+  href: string;
+  className?: string;
+}
+
+export const HoveredLink = ({ children, href, className, ...rest }: HoveredLinkProps) => {
   return (
     <Link
+      href={href}
+      className={cn("text-neutral-700 dark:text-neutral-200 hover:text-black", className)}
       {...rest}
-      className="text-neutral-700 dark:text-neutral-200 hover:text-black "
     >
       {children}
     </Link>
