@@ -59,8 +59,7 @@ export default function Home() {
     </>
   );
 }
-
-export const products = [
+const products = [
   
     {
       title: "NextSoft",
