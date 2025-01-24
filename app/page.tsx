@@ -1,20 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaDiscord, FaTelegramPlane } from 'react-icons/fa';
-import { motion } from "framer-motion"
-import { cn } from "@/lib/utils";
 import { Spotlight } from "../components/ui/spotlight";
 import { HeroParallax } from "../components/ui/hero-parallax";
-import { FloatingNav } from "../components/ui/floating-navbar";
-import { CardBody, CardContainer, CardItem } from "../components/ui/3d-card";
 import Footer from '@/components/Footer'
 import { DynamicNavbar } from "@/components/NavbarDemo";
-import Link from "next/link";
-import Image from 'next/image';
 import Benefits from "@/components/Benefits";
 import About from "@/components/about";
 import Services from "@/components/services";
 import Careers from "@/components/Careers";
-import Head from 'next/head';
 
 export default function Home() {
 
