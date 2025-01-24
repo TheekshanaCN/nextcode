@@ -13,19 +13,23 @@ const transition = {
   restSpeed: 0.001,
 };
 
+interface MenuItemProps {
+  setActive: (item: string) => void;
+  active: string | null;
+  item: string;
+  children?: React.ReactNode;
+}
+
 export const MenuItem = ({
   setActive,
   active,
   item,
   children,
-}: {
-  setActive: (item: string) => void;
-  active: string | null;
-  item: string;
-  children?: React.ReactNode;
-}) => {
+}: MenuItemProps) => {
+  const handleMouseEnter = () => setActive(item);
+
   return (
-    <div onMouseEnter={() => setActive(item)} className="relative ">
+    <div onMouseEnter={handleMouseEnter} className="relative">
       <motion.p
         transition={{ duration: 0.3 }}
         className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white"
@@ -60,34 +64,37 @@ export const MenuItem = ({
   );
 };
 
-export const Menu = ({
-  setActive,
-  children,
-}: {
+interface MenuProps {
   setActive: (item: string | null) => void;
   children: React.ReactNode;
-}) => {
+}
+
+export const Menu = ({ setActive, children }: MenuProps) => {
+  const handleMouseLeave = () => setActive(null);
+
   return (
     <nav
-      onMouseLeave={() => setActive(null)} // resets the state
-      className="relative rounded-full border border-transparent dark:bg-black dark:border-white/[0.2] bg-white shadow-input flex justify-center space-x-4 px-8 py-6 "
+      onMouseLeave={handleMouseLeave} // resets the state
+      className="relative rounded-full border border-transparent dark:bg-black dark:border-white/[0.2] bg-white shadow-input flex justify-center space-x-4 px-8 py-6"
     >
       {children}
     </nav>
   );
 };
 
+interface ProductItemProps {
+  title: string;
+  description: string;
+  href: string;
+  src: string;
+}
+
 export const ProductItem = ({
   title,
   description,
   href,
   src,
-}: {
-  title: string;
-  description: string;
-  href: string;
-  src: string;
-}) => {
+}: ProductItemProps) => {
   return (
     <Link href={href} className="flex space-x-2">
       <Image
@@ -109,19 +116,15 @@ export const ProductItem = ({
   );
 };
 
-// Replace any with specific type
-interface HoveredLinkProps {
+interface HoveredLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   children: React.ReactNode;
-  href: string;
-  className?: string;
 }
 
-export const HoveredLink = ({ children, href, className, ...rest }: HoveredLinkProps) => {
+export const HoveredLink = ({ children, ...rest }: HoveredLinkProps) => {
   return (
     <Link
-      href={href}
-      className={cn("text-neutral-700 dark:text-neutral-200 hover:text-black", className)}
       {...rest}
+      className="text-neutral-700 dark:text-neutral-200 hover:text-black"
     >
       {children}
     </Link>
