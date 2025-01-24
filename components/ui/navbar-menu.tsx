@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
+import Link, { LinkProps } from "next/link";
 import Image from "next/image";
 
 const transition = {
@@ -116,8 +116,9 @@ export const ProductItem = ({
   );
 };
 
-interface HoveredLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+interface HoveredLinkProps extends Omit<LinkProps, "href"> {
   children: React.ReactNode;
+  href: LinkProps["href"];
 }
 
 export const HoveredLink = ({ children, ...rest }: HoveredLinkProps) => {
