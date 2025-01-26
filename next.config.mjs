@@ -1,12 +1,8 @@
-// next.config.mjs
-export default {
-  async redirects() {
-    return [
-      {
-        source: '/:path*',
-        destination: 'https://www.nextsoftgroup.com/:path*',  // Redirect to the www version
-        permanent: true,
-      },
-    ]
-  },
-}
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    images: {
+      domains: ['aceternity.com', 'images.unsplash.com', 'assets.aceternity.com', 'ishankashamal.tech'],
+    },
+  }
+
+export default nextConfig;
