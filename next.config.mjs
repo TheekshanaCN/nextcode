@@ -1,38 +1,12 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  images: {
-    domains: [
-      'aceternity.com',
-      'images.unsplash.com',
-      'assets.aceternity.com',
-    ],
-  },
+// next.config.mjs
+export default {
   async redirects() {
     return [
       {
-        source: "/",
-        has: [
-          {
-            type: "host",
-            value: "nextsoftgroup.com",
-          },
-        ],
-        destination: "https://www.nextsoftgroup.com/",
+        source: '/:path*',
+        destination: 'https://www.nextsoftgroup.com/:path*',  // Redirect to the www version
         permanent: true,
       },
-      {
-        source: "/",
-        has: [
-          {
-            type: "host",
-            value: "www.nextsoftgroup.com",
-          },
-        ],
-        destination: "https://www.nextsoftgroup.com/",
-        permanent: true,
-      },
-    ];
+    ]
   },
-};
-
-export default nextConfig;
+}
